@@ -1,0 +1,125 @@
+[gd_scene load_steps=19 format=3 uid="uid://cpup0kbtj3u07"]
+
+[ext_resource type="Script" path="res://scripts/start.gd" id="1_52we6"]
+[ext_resource type="Texture2D" uid="uid://6egv68s21ipb" path="res://assets/Background/Start_menu.png" id="2_2dmfl"]
+[ext_resource type="PackedScene" uid="uid://byull7c5x8pg" path="res://scenes/stars.tscn" id="3_16cnx"]
+[ext_resource type="FontFile" uid="uid://c72b15gmbfko0" path="res://fonts/m5x7.tres" id="3_dkncn"]
+[ext_resource type="Texture2D" uid="uid://bdt10p0vx7sal" path="res://assets/Button/Hover button.png" id="4_tuv08"]
+[ext_resource type="Texture2D" uid="uid://dkf3pfdkw0qei" path="res://assets/Button/Press button.png" id="5_ljjp4"]
+[ext_resource type="Texture2D" uid="uid://iivimh0imhhv" path="res://assets/Button/Normal button.png" id="6_qrh8w"]
+[ext_resource type="FontFile" uid="uid://bvpbxe36uh3al" path="res://fonts/m5x7.ttf" id="7_4h5g5"]
+[ext_resource type="Texture2D" uid="uid://eorb7sjqft0u" path="res://assets/Score and life/Score2.png" id="9_nq8oo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rx1ms"]
+texture = ExtResource("4_tuv08")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kjtmn"]
+texture = ExtResource("5_ljjp4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wprxa"]
+texture = ExtResource("6_qrh8w")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ugvvd"]
+texture = ExtResource("4_tuv08")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_si2v2"]
+texture = ExtResource("5_ljjp4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xt8h2"]
+texture = ExtResource("6_qrh8w")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_reh6g"]
+texture = ExtResource("4_tuv08")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6fnuj"]
+texture = ExtResource("5_ljjp4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sfbw8"]
+texture = ExtResource("6_qrh8w")
+
+[node name="start" type="Node"]
+script = ExtResource("1_52we6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2dmfl")
+centered = false
+
+[node name="Play" type="Button" parent="."]
+offset_left = 228.0
+offset_top = 179.0
+offset_right = 332.0
+offset_bottom = 229.0
+rotation = -0.603093
+theme_override_fonts/font = ExtResource("3_dkncn")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_rx1ms")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kjtmn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_wprxa")
+text = "PLAY"
+
+[node name="Guia" type="Button" parent="."]
+offset_left = 16.0
+offset_top = 330.0
+offset_right = 122.0
+offset_bottom = 379.0
+rotation = -0.575413
+theme_override_fonts/font = ExtResource("3_dkncn")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_ugvvd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_si2v2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xt8h2")
+text = "GUIA"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 123.0
+offset_top = 255.0
+offset_right = 232.0
+offset_bottom = 305.0
+rotation = -0.610339
+theme_override_fonts/font = ExtResource("3_dkncn")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_reh6g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6fnuj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_sfbw8")
+text = "QUIT"
+
+[node name="background" parent="." instance=ExtResource("3_16cnx")]
+position = Vector2(435, 105)
+rotation = 1.56465
+scale = Vector2(0.7, 0.655)
+
+[node name="bestscore" type="Label" parent="."]
+offset_left = 35.0
+offset_top = 360.0
+offset_right = 257.0
+offset_bottom = 408.0
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_4h5g5")
+theme_override_font_sizes/font_size = 60
+text = "Best score:
+"
+horizontal_alignment = 2
+
+[node name="text_score" type="TextureRect" parent="."]
+offset_left = 227.0
+offset_top = 355.0
+offset_right = 327.0
+offset_bottom = 405.0
+texture = ExtResource("9_nq8oo")
+
+[node name="Label" type="Label" parent="text_score"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 5.0
+offset_right = 89.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("7_4h5g5")
+theme_override_font_sizes/font_size = 40
+text = "0
+"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Guia" to="." method="_on_guia_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
