@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://blnw6ns800dcx"]
+
+[ext_resource type="Texture2D" uid="uid://b3dxo8t25n3ik" path="res://doguin.png" id="2_cxhi4"]
+[ext_resource type="Texture2D" uid="uid://cedyjsdw1u5th" path="res://fundo windows.jpg" id="2_wl5rg"]
+[ext_resource type="Script" path="res://scenes/doguin.gd" id="3_u6oae"]
+
+[sub_resource type="GDScript" id="GDScript_dusjb"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Tela2" type="Node2D"]
+script = SubResource("GDScript_dusjb")
+
+[node name="FundoWindows" type="Sprite2D" parent="."]
+position = Vector2(584, 321.5)
+scale = Vector2(0.302083, 0.301389)
+texture = ExtResource("2_wl5rg")
+
+[node name="Doguin" type="Sprite2D" parent="."]
+position = Vector2(550, 311)
+scale = Vector2(0.502381, 0.422619)
+texture = ExtResource("2_cxhi4")
+script = ExtResource("3_u6oae")
